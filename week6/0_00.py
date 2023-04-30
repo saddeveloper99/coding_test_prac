@@ -15,12 +15,9 @@
 '''
 
 
-
 def solution():
-   pass
+    pass
 
 
 print(solution())
 print()
-
-
