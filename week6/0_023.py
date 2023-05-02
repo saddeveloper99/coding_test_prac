@@ -41,10 +41,10 @@ def solution(number):
     return cnt
 
 
-import itertools
+from itertools import combinations
 def solution(number):
     cnt = 0
-    c = itertools.combinations(number, 3)
+    c = combinations(number, 3)
     combi_ = list(c)
     for i in combi_:
         if sum(i) == 0:

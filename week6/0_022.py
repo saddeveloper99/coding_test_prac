@@ -46,12 +46,13 @@ n = 20
 #     n = n - a + b
 #     answer += b
 
-# answer = 0
-# while n >= a:
-#     q, r = divmod(n, a)
-#     n = q * b + r
-#     answer += q * b
-# print(answer)
+def solution(n, a, b):
+    answer = 0
+    while n >= a:
+        q, r = divmod(n, a)
+        n = q * b + r
+        answer += q * b
+    return answer
 
 def solution(n, a, b):
     if n < a:
