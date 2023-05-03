@@ -16,19 +16,36 @@ https://school.programmers.co.kr/learn/courses/30/lessons/131705
 3 ≤ number의 길이 ≤ 13
 -1,000 ≤ number의 각 원소 ≤ 1,000
 서로 다른 학생의 정수 번호가 같을 수 있습니다.
-'''
+
+ '''
 
 number = [-2, 3, 0, 2, -5]
 # 5
+
+
+# number의 원소가 5개일 때 인덱스 예시
+# i   j   k
+# 0 - 1 - 2
+#       - 3
+#       - 4 
+#     2 - 3  
+#       - 4
+#     3 - 4
+#
+# 1 - 2 - 3
+#       - 4
+#     3 - 4
+#
+# 2 - 3 - 4
 
 
 cnt = 0
 for i in range(len(number)-2):
     for j in range(i+1, len(number)-1):
         for k in range(j+1, len(number)):
+            print(i, j, k)
             if number[i] + number[j] + number[k] == 0:
                 cnt += 1
-print(cnt)
 
 
 def solution(number):
