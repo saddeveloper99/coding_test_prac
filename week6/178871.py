@@ -34,7 +34,17 @@ callings는 players의 원소들로만 이루어져 있습니다.
 players = ["mumu", "soe", "poe", "kai", "mine"] 
 callings = ["kai", "kai", "mine", "mine"]
 # ["mumu", "kai", "mine", "soe", "poe"]
-
+'''
+1. 구해야 하는 것
+    calligns가 다 끝난 뒤 배열
+2. 1을 구하기 위해 필요한 것
+    # callings의 원소마다 players의 해당하는 값을 옮기기
+        # calling과 동일한 players의 원소와 그 앞의 원소 위치변경   
+            # swap을 통해 바꾸기
+3. 그 외 고려해야 할 사항
+    # 5 ≤ players의 길이 ≤ 50,000
+    # 2 ≤ callings의 길이 ≤ 1,000,000
+'''
 def solution(players, callings):
     players_dict = {}
     for i, j in enumerate(players):
@@ -63,7 +73,7 @@ for i, j in enumerate(players):
 for i in callings:
     a = players_dict[i] # 현재 순위
     cur = players[a] # 해당 순위의 선수
-    pre = players[a-1]
+    pre = players[a-1] # 전 순위의 선수
     players_dict[cur] -= 1
     players_dict[pre] += 1
 

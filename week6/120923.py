@@ -43,3 +43,4 @@ def solution(num, total):
         answer = [i for i in range(middle_num - num//2, middle_num + num//2 + 1)]
     else:
         answer = [i for i in range(middle_num - num//2+1, middle_num + num//2 + 1)]
+    return answer
