@@ -44,7 +44,11 @@ callings = ["kai", "kai", "mine", "mine"]
 3. 그 외 고려해야 할 사항
     # 5 ≤ players의 길이 ≤ 50,000
     # 2 ≤ callings의 길이 ≤ 1,000,000
+    # callings안에서 players.index()를 한번만 호출해도 500억번 연산을 시작
+    # players를 딕셔너리로 바꿔서 시간 복잡도 줄이기
 '''
+
+
 def solution(players, callings):
     players_dict = {}
     for i, j in enumerate(players):
