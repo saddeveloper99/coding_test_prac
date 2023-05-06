@@ -27,13 +27,7 @@ dots의 원소는 [x, y] 형태이며 x, y는 정수입니다.
 '''
 
 
-def slope(dot1, dot2):
-    return (dot2[1] - dot1[1]) / (dot2[0] - dot1[0])
 
-
-def solution(dots):
-    a, b, c, d = dots
-    return int(slope(a, b) == slope(c, d)) or int(slope(a, c) == slope(b, d))
 
 
 def slope(dot1, dot2):
@@ -43,3 +37,4 @@ def slope(dot1, dot2):
 def solution(dots):
     a, b, c, d = dots
     return int(slope(a, b) == slope(c, d)) or int(slope(a, c) == slope(b, d))
+
