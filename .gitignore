@@ -5,4 +5,5 @@ venv
 settings.json
 /vscode
 test.py
-**/**copy.py
+**/**copy**.py
+checkworktime.py
