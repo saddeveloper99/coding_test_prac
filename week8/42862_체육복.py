@@ -28,9 +28,31 @@ https://school.programmers.co.kr/learn/courses/30/lessons/42862
 이때 이 학생은 체육복을 하나만 도난당했다고 가정하며, 남은 체육복이 하나이기에 
 다른 학생에게는 체육복을 빌려줄 수 없습니다.
 '''
-n = 5
-lost = [1, 2, 4]
-reserve = [1, 3, 5]
+n = 20
+lost = [
+    28,
+    22,
+    20,
+    2,
+    26,
+    10,
+    16,
+    4,
+    14,
+    8,
+]
+reserve = [
+    27,
+    1,
+    15,
+    7,
+    25,
+    19,
+    9,
+    13,
+    3,
+    21,
+]
 '''
 1. 구해야 하는 것
     최대한 체육복을 많이 입히기
@@ -55,6 +77,7 @@ reserve = [1, 3, 5]
 #         학생들[i-1] += 1
 # print(학생들.sum())
 
+#
 # def solution(n, lost, reserve):
 #     no_uni = set(lost) - set(reserve)
 #     extra_uni = set(reserve) - set(lost)
@@ -68,21 +91,12 @@ reserve = [1, 3, 5]
 #         no_uni.remove(r-1) if r-1 in no_uni else no_uni.remove(r+1) if r+1 in no_uni else None
 #     return n - len(no_uni)
 
+
 def solution(n, lost, reserve):
     no_uni = set(lost) - set(reserve)
     for r in set(reserve) - set(lost):
         no_uni = no_uni - {r-1} if {r-1} <= no_uni else no_uni - {r+1}
     return n - len(no_uni)
-
-
-
-
-
-
-
-
-
-
 
 
 print(solution(n, lost, reserve))
