@@ -49,7 +49,7 @@ result = 0
 score.sort(reverse=True)  # 내림차순 정렬
 # print(score)
 for i in range(0, len(score), m):  # 0부터 / 사과 개수-1까지 / m개씩 건너뛰면서
-    a = score[i:i+m]  # 이거 왜 에러 안남? ㅋㅋ 굿
+    a = score[i:i+m]  # 이거 왜 에러 안남
     print(a)
     # 사과가 모두 담긴 박스만
     if len(a) == m:

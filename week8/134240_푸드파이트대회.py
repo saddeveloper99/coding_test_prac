@@ -70,7 +70,6 @@ print(result)
 #     # answer = []
 #     # for i in range(len(food)):
 #     #     answer += [i]*(food[i] // 2)
-#     print(answer)
 #     answer = answer + [0] + answer[::-1]
 #     result = "".join(map(str, answer))
 #     return result
