@@ -1,5 +1,5 @@
 '''
-
+https://school.programmers.co.kr/learn/courses/30/lessons/160586
 대충 만든 자판
 문제 설명
 휴대폰의 자판은 컴퓨터 키보드 자판과는 다르게 하나의 키에 여러 개의 문자가 할당될 수 있습니다. 
@@ -44,9 +44,10 @@ targets의 원소는 알파벳 대문자로만 이루어져 있습니다.
     각 문자열을 작성하기 위해 키를 최소 몇번씩 눌러야 하는지
     작성할 수 없다면 -1
 2. 1을 구하기 위해 필요한 것
+    각각의 알파벳 별로 최소 누르는 횟수를 담은 딕셔너리를 만든다.
+        index번호끼리 비교해서 더 작은것을 밸류로 가져가기 > min
     keymap의 원소별로 돌아가면서 target의 인덱스를 찾을 방법
-    index번호끼리 비교해서 더 작은것을 채택?
-    각각의 
+        enumerate로 인덱스랑 같이 값을 빼옴
 3. 그 외 고려해야 할 사항
 '''
 keymap = ["ABACD", "BCEFD"]
@@ -60,49 +61,44 @@ targets = ["ABCD","AABB"]
 # #[4, 6]
 
 
-최소누르는횟수 = {}
-for k in keymap:
-    print(k)
-    for i, k in enumerate(k):
-        print(i,k)
-        if k not in 최소누르는횟수: # 인덱스 넘버기 때문에 +1을 해준다.
-            최소누르는횟수[k] = i + 1
-        else:
-            최소누르는횟수[k] = min(최소누르는횟수[k], i + 1)
-print(최소누르는횟수) #각각의 알파벳을 얻기 위해 가장 빠른 입력 횟수
-답 = []
-for target in targets:
-    누른횟수 = 0
-    for 글자 in target:
-        print(글자)
-        if 글자 not in 최소누르는횟수:
-            누른횟수 = -1
-            break
-        else:
-            누른횟수 += 최소누르는횟수[글자]
-    답.append(누른횟수)
-print(답)
+# 최소누르는횟수 = {}
+# for k in keymap:
+#     print(k)
+#     for i, k in enumerate(k):
+#         print(i,k)
+#         if k not in 최소누르는횟수: # 인덱스 넘버기 때문에 +1을 해준다.
+#             최소누르는횟수[k] = i + 1
+#         else:
+#             최소누르는횟수[k] = min(최소누르는횟수[k], i + 1)
+# print(최소누르는횟수) #각각의 알파벳을 얻기 위해 가장 빠른 입력 횟수
+# 답 = []
+# for target in targets:
+#     누른횟수 = 0
+#     for 글자 in target:
+#         print(글자)
+#         if 글자 not in 최소누르는횟수:
+#             누른횟수 = -1
+#             break
+#         else:
+#             누른횟수 += 최소누르는횟수[글자]
+#     답.append(누른횟수)
+# print(답)
 
-
-# def solution(keymap, targets):
-#     최소누르는횟수 = {}
-#     for k in keymap:
-#         for i, k in enumerate(k):
-#             if k not in 최소누르는횟수:
-#                 최소누르는횟수[k] = i + 1
-#             else:
-#                 최소누르는횟수[k] = min(최소누르는횟수[k], i + 1)
-#     답 = []
-#     for target in targets:
-#         누른횟수 = 0
-#         for 글자 in target:
-#             if 글자 not in 최소누르는횟수:
-#                 누른횟수 = -1
-#                 break
-#             else:
-#                 누른횟수 += 최소누르는횟수[글자]
-#         답.append(누른횟수)
-#     return 답
+def solution(keymap, targets):
+    최소누르는횟수 = {}
+    for row in keymap:
+        for i, k in enumerate(row, 1):
+            최소누르는횟수[k] = i if k not in 최소누르는횟수 else min(최소누르는횟수[k], i)
+    답 = []
+    for target in targets:
+        누른횟수 = 0
+        for 글자 in target:
+            if 글자 not in 최소누르는횟수:
+                누른횟수 = -1
+                break
+            else: 누른횟수 += 최소누르는횟수[글자]
+        답 += [누른횟수]
+    return 답
 
 
 # 최소누르는횟수[k] = {(i + 1) if k not in 최소누르는횟수 else min(최소누르는횟수[k], i + 1) for i, k in enumerate(k)}
@@ -117,14 +113,9 @@ def solution(keymap, targets):
         답 += [-1] if -1 in a else [sum(a)]
     return 답
 
+        
 print(solution(keymap, targets))
 
-# def solution(keymap, targets):
-#     최소누르는횟수 = {}
-#     for k in keymap:
-#         for i, k in enumerate(k, 1):
-#             최소누르는횟수[k] = i if k not in 최소누르는횟수 else min(최소누르는횟수[k], i)            
-#     답 = [[-1] if -1 in [-1 if 글자 not in 최소누르는횟수 else 최소누르는횟수[글자] for 글자 in target] else [sum([-1 if 글자 not in 최소누르는횟수 else 최소누르는횟수[글자] for 글자 in target])] for target in targets]
-#     return 답[0]+답[1]
+
 
 # print(solution(keymap, targets))
