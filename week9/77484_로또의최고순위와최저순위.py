@@ -81,7 +81,7 @@ def solution(lottos, win_nums):
     for i in win_nums:
         if i in lottos:
             lottos.remove(i)
-    return [min(len(lottos) - lottos.count(0) + 1), min(6, len(lottos)+1)]
+    return [min(6, len(lottos) - lottos.count(0) + 1), min(6, len(lottos)+1)]
 
 
 
@@ -92,5 +92,6 @@ def solution2(lottos, win_nums):
     return [min(6, len(a)+1-a.count(0)), min(6, len(a)+1)]
 
 
+print(solution(lottos, win_nums))
 print(solution2(lottos, win_nums))
 
