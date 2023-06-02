@@ -30,7 +30,7 @@ n은 10,000 이하의 자연수 입니다.
 
 3. 그 외 고려해야 할 사항
 '''
-from timechecker import elapsed
+from timecheckers.timechecker import elapsed
 n = 10000000
 # 4
 

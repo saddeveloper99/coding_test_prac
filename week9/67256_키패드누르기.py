@@ -109,13 +109,12 @@ hand = "right"
 
 # from sys import path
 # path.append("../codingtest_prac")
-# import timechecker
-# timecheckers.timechecker.py
+# # import timechecker
 
 
 
-# @timechecker.elapsed
 
+# @elapsed
 def solution(numbers, hand):
     left, middle, right = [1, 4, 7], [2, 5, 8, 0], [3, 6, 9]
     l_hand, r_hand = [3,0], [3,2]

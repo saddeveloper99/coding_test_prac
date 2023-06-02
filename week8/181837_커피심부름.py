@@ -23,7 +23,7 @@ order의 원소	의미
 "cafelatte"	카페 라테
 "anything"	아무거나
 '''
-from timechecker import elapsed
+from timecheckers.timechecker import elapsed
 
 
 '''

@@ -33,7 +33,7 @@ return 하도록 solution 함수를 완성해주세요.
     # if i**(1/2) == int(i**(1/2))면 약수의 개수는 홀수
     # 위 식으로 판별 시 약수의 개수를 구할 필요가 없음.
 '''
-from timechecker import elapsed
+from timecheckers.timechecker import elapsed
 l = 13
 r = 17
 # 43
